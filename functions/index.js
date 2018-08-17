@@ -10,17 +10,10 @@ i18n.configure({
 });
 
 app.middleware((conv) => {
-  console.log('x_middleware: ', conv.user.locale);
   i18n.setLocale(conv.user.locale);
 });
 
 app.intent('Default Welcome Intent', (conv) => {
-  console.log('uh hmmm');
-  console.log(conv.user.locale);
-  console.log(i18n.__l('hello'));
-  i18n.setLocale(conv.user.locale);
-  console.log(i18n.getLocale());
-  console.log(i18n.__('hello'));
   conv.close(i18n.__('hello'));
 });
 
